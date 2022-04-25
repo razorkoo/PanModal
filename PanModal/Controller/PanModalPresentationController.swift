@@ -61,7 +61,12 @@ open class PanModalPresentationController: UIPresentationController {
      Return false to cap scrolling at .max height.
      */
     private var anchorModalToLongForm = true
-
+    
+    /**
+        A flag to determine if backgrouns is active when controller is panmodalpresentable
+     */
+    private var isBackgroundActive = false
+    
     /**
      The y content offset value of the embedded scroll view
      */
@@ -345,8 +350,12 @@ private extension PanModalPresentationController {
          in the presentation animator instead of here
          */
         containerView.addSubview(presentedView)
-        containerView.addGestureRecognizer(panGestureRecognizer)
-
+        if presentable.isBackgroundActive {
+            presentedView.addGestureRecognizer(panGestureRecognizer)
+        } else {
+            containerView.addGestureRecognizer(panGestureRecognizer)
+        }
+        
         if presentable.showDragIndicator {
             addDragIndicatorView(to: presentedView)
         }
@@ -429,6 +438,7 @@ private extension PanModalPresentationController {
         longFormYPosition = layoutPresentable.longFormYPos
         anchorModalToLongForm = layoutPresentable.anchorModalToLongForm
         extendsPanScrolling = layoutPresentable.allowsExtendedPanScrolling
+        isBackgroundActive = layoutPresentable.isBackgroundActive
 
         containerView?.isUserInteractionEnabled = layoutPresentable.isUserInteractionEnabled
     }

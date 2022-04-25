@@ -180,6 +180,12 @@ public protocol PanModalPresentable: AnyObject {
 
      Default value is true.
      */
+    
+    /**
+        A flag to determine if backgrouns is active when controller is panmodalpresentable
+     */
+    var isBackgroundActive: Bool { get }
+    
     func shouldRespond(to panModalGestureRecognizer: UIPanGestureRecognizer) -> Bool
 
     /**

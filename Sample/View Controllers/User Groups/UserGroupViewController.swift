@@ -9,6 +9,8 @@
 import UIKit
 
 class UserGroupViewController: UITableViewController, PanModalPresentable {
+    var isBackgroundActive: Bool = false
+    
 
     let members: [UserGroupMemberPresentable] = [
         UserGroupMemberPresentable(name: "Naida Schill ✈️", role: "Staff Engineer - Mobile DevXP", avatarBackgroundColor: #colorLiteral(red: 0.7215686275, green: 0.9098039216, blue: 0.5607843137, alpha: 1)),
