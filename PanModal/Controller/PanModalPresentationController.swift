@@ -151,6 +151,10 @@ open class PanModalPresentationController: UIPresentationController {
         return panContainerView
     }
 
+    func updateDimmedViewState() {
+        self.backgroundView.isHidden = !self.isBackgroundActive
+        self.backgroundView.isUserInteractionEnabled = !self.isBackgroundActive
+    }
     // MARK: - Gesture Recognizers
 
     /**
@@ -311,10 +315,6 @@ public extension PanModalPresentationController {
         configureScrollViewInsets()
     }
 
-    func updateDimmedViewState() {
-        self.backgroundView.isHidden = !self.isBackgroundActive
-        self.backgroundView.isUserInteractionEnabled = !self.isBackgroundActive
-    }
 }
 
 // MARK: - Presented View Layout Configuration
