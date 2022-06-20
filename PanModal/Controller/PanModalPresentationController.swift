@@ -154,6 +154,8 @@ open class PanModalPresentationController: UIPresentationController {
     func updateDimmedViewState() {
         if self.isBackgroundActive {
             self.backgroundView.removeFromSuperview()
+            self.containerView?.isUserInteractionEnabled = false
+            self.presentedView.isUserInteractionEnabled = true
         }
     }
     // MARK: - Gesture Recognizers
