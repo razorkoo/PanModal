@@ -30,6 +30,9 @@ public extension PanModalPresentable where Self: UIViewController {
         presentedVC?.transition(to: state)
     }
 
+    func updateDimmedViewState() {
+        presentedVC?.updateDimmedViewState()
+    }
     /**
      A function wrapper over the `setNeedsLayoutUpdate()`
      function in the PanModalPresentationController.
