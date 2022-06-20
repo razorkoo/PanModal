@@ -121,6 +121,8 @@ open class PanModalPresentationController: UIPresentationController {
                 self?.presentedViewController.dismiss(animated: true)
             }
         }
+        view.isUserInteractionEnabled = !self.isBackgroundActive
+        view.isHidden = !self.isBackgroundActive
         return view
     }()
 
