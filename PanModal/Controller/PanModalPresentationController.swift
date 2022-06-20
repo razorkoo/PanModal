@@ -121,8 +121,6 @@ open class PanModalPresentationController: UIPresentationController {
                 self?.presentedViewController.dismiss(animated: true)
             }
         }
-        view.isUserInteractionEnabled = !self.isBackgroundActive
-        view.isHidden = !self.isBackgroundActive
         return view
     }()
 
@@ -313,6 +311,10 @@ public extension PanModalPresentationController {
         configureScrollViewInsets()
     }
 
+    func updateDimmedViewState() {
+        self.backgroundView.isHidden = !self.isBackgroundActive
+        self.backgroundView.isUserInteractionEnabled = !self.isBackgroundActive
+    }
 }
 
 // MARK: - Presented View Layout Configuration
